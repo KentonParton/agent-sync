@@ -1,0 +1,8 @@
+version: 1
+targets: [codex, claude, cursor]
+instructions:
+  - path: .agent/instructions.md
+skills:
+  - path: .agent/skills
+mcp:
+  - path: .agent/mcp.json

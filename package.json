@@ -1,0 +1,45 @@
+{
+  "name": "@agent-sync/core",
+  "version": "0.1.0",
+  "description": "Branch-aware agent environment synchronization for Codex, Claude Code, and Cursor",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "agent-sync": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "examples",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --import tsx --test test/*.test.ts",
+    "check": "tsc --noEmit -p tsconfig.test.json",
+    "prepack": "npm run build",
+    "format": "prettier --write src test docs README.md package.json tsconfig*.json .github examples",
+    "format:check": "prettier --check src test docs README.md package.json tsconfig*.json .github examples",
+    "test:onboarding": "npm run build && node --import tsx --test test/team-onboarding.test.ts"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "prettier": "^3.9.8",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "license": "MIT"
+}
