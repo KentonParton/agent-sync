@@ -16,6 +16,8 @@ npm run build
 npm link
 ```
 
+The repository's `.npmrc` disables automatic install scripts. Explicit commands such as `npm run build` and `npm test` still run code, so use a trusted checkout and reviewed dependencies. Build explicitly before packaging with `npm run build && npm pack`; automatic `prepack` hooks are also disabled in this checkout.
+
 Then, in your application repository:
 
 ```sh
